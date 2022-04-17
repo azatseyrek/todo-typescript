@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import InputField from './components/InputField';
+import TodoList from './components/TodoList';
 import {Todo} from './components/types';
 import './App.css';
-import {getValue} from '@testing-library/user-event/dist/utils';
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>('');
@@ -21,9 +21,7 @@ const App: React.FC = () => {
     <div className="App">
       <span className="heading">Taskify</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-      {todos.map((t) => (
-        <li>{t.todo}</li>
-      ))}
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 };
